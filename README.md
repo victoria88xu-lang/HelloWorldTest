@@ -27,6 +27,7 @@ AI Finance Radar is a practical Streamlit MVP that ingests **real AI + finance R
 - `analyzer.py` — scoring, flags, summaries, trends, digest building
 - `notifier.py` — Bark push helper
 - `daily_job.py` — scheduled pipeline for daily digest push
+- `storage.py` — lightweight file storage for latest analyzed signals cache
 - `.github/workflows/daily.yml` — scheduled GitHub Actions workflow
 
 ## RSS sources
@@ -86,6 +87,8 @@ In app sidebar:
 Each push includes a clickable URL that opens either:
 - `APP_BASE_URL/?item_id=<top_article_id>`
 - or homepage fallback.
+
+The app also caches recent analyzed items to `data/latest_signals.json` so detail links still resolve even if a feed temporarily fails.
 
 ## Daily GitHub Actions push (08:00 Singapore)
 

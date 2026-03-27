@@ -135,7 +135,8 @@ def score_article(article: dict[str, Any]) -> dict[str, Any]:
         }
     )
     article["spotlight_cn"] = build_spotlight_cn(article["title"], flag, category)
-    article["detail_link"] = f"{APP_BASE_URL}/?item_id={article['id']}"
+    base = APP_BASE_URL.rstrip("/")
+    article["detail_link"] = f"{base}/?item_id={article['id']}"
     return article
 
 
